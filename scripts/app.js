@@ -12,7 +12,7 @@ angular.module('PersonalManager', ['ui.router',
         }).state('board', {
             url : '/{id}/board',
             controller : 'BoardCtrl',
-            templateUrl : '/views/board.html'
+            templateUrl : './views/board.html'
         });
 
         $urlRouterProvider.otherwise('/landing');
