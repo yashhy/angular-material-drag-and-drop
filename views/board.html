@@ -1,0 +1,115 @@
+<h2>Board : {{boardName}}</h2>
+
+<div ng-cloak layout-gt-sm="row" layout="column">
+
+  	<div flex-gt-sm="20" flex ng-repeat="list in boards track by $index" ng-show="list.isVisible">
+
+	    <md-content>
+
+		     <md-toolbar>
+		      <div class="md-toolbar-tools">
+	          	<span>{{list.name}}</span>
+		        <span flex></span>
+		        <md-button class="md-fab md-mini" 
+		        			aria-label="Edit"
+		        			ng-click="onListEdit($event, $index)">
+		          	<md-icon md-svg-icon="img/icons/mode_edit.svg"></md-icon>
+		          	<md-tooltip md-direction="bottom">
+			        	Edit list 
+			        </md-tooltip>
+		        </md-button>
+		        <md-button class="md-fab md-mini" 
+		        			aria-label="List Delete" 
+		        			ng-click="onListDelete($event, $index)"
+		        			ng-disabled="boards.length === 1">
+		          	<md-icon md-svg-icon="img/icons/delete_white.svg"></md-icon>
+		          	<md-tooltip md-direction="bottom">
+			        	Delete list 
+			        </md-tooltip>
+		        </md-button>
+		      </div>
+		    </md-toolbar>
+
+	    </md-content>
+
+	    <md-content>
+
+	      <md-list flex>
+
+	        <md-subheader class="md-no-sticky"></md-subheader>
+
+	        <md-list-item 
+	        	 class="md-3-line thumbnail"
+				 data-drop="true" 
+				 data-jqyoui-options="dropOptions"
+				 ng-model="list.cards"
+				 jqyoui-droppable>
+
+		        <md-card data-drag="true" 
+			    	data-jqyoui-options="dragOptions" 
+		 	    	ng-repeat="card in list.cards track by $index"
+		 	    	ng-model="list.cards[$index]"
+			    	jqyoui-draggable="{animate:true}" 
+			    	ng-hide="!card.id">
+
+			        <md-card-title>
+
+			          <md-card-title-text>
+			            <span class="md-headline">{{card.title}}
+			            </span>
+			            <span class="md-subhead">{{card.desc}} 
+			            	<span ng-if="card.comments.length">
+			            		 I have {{card.comments.length}} comments.
+			            	</span>
+			            </span>
+			          </md-card-title-text>
+
+			        </md-card-title>
+
+			        <md-card-actions layout="row" layout-align="end center">
+			          	<md-button class="md-primary"
+			          				ng-click="onEditCardClick($event, $parent.$index, card, $index)">
+	          				Edit	
+      					</md-button>
+			          	<md-button class="md-warn"
+			          				ng-click="onDeleteCardClick($event, $parent.$index, $index)">
+			          		Delete
+			          	</md-button>
+			        </md-card-actions>
+
+			    </md-card>
+
+    		   	<md-toolbar>
+	    		    <div class="md-toolbar-tools white">
+	    		        <span flex></span>
+	    		        <md-button class="md-fab md-mini" 
+	    		        			aria-label="Add new Card"
+	    		        			ng-click="onAddCardClick($event, $index)">
+		        			<md-tooltip md-direction="left">
+	    			          Add new Card
+	    			        </md-tooltip>
+	    		          <md-icon md-svg-icon="img/icons/add_white.svg"></md-icon>
+	    		        </md-button>
+	    		    </div>
+    		    </md-toolbar>
+
+	        </md-list-item>
+
+           </md-list>
+
+       </md-content>
+
+  	</div>
+
+  	<md-content layout="row" 
+  				layout-align="center" 
+  				ng-hide="boards.length >= 5">
+	  	<md-button class="md-fab md-mini" aria-label="Favorite" ng-click="onAddListClick()">
+			<md-tooltip md-direction="right">
+	          Add new list 
+	        </md-tooltip>
+          	<md-icon md-svg-icon="img/icons/add_white.svg"></md-icon>
+        </md-button>
+  	</md-content>
+
+</div> 

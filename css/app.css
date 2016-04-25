@@ -1,0 +1,30 @@
+html {
+  padding: 1%;
+  background-color: white;
+}
+
+body {
+  -webkit-user-select: none;
+}
+
+.row {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
+.drop-hover {
+  background-color: #FF4081 !important;
+}
+
+md-content {
+  overflow: visible !important;
+}
+
+.layout-column>.flex-gt-sm-20, .layout-gt-sm-column>.flex-gt-sm-20 {
+	max-width: 20% !important;
+	padding-right: 2px !important;
+}
+
+.white {
+	background-color: white;
+}

@@ -1,0 +1,51 @@
+<md-dialog aria-label="List dialog" flex="50">
+	<md-toolbar>
+	    <div class="md-toolbar-tools">
+	        <h2 ng-if="!isCardEdit">Add a Card</h2>
+	        <h2 ng-if="isCardEdit">Edit a Card</h2>
+	        <span flex></span>
+	        <md-button class="md-icon-button" ng-click="cancel()">
+	          <md-icon md-svg-src="img/icons/clear_white.svg" aria-label="Close dialog"></md-icon>
+	        </md-button>
+	    </div>
+    </md-toolbar>
+
+	<md-dialog-content>
+		<md-content class="md-padding">
+		    <md-input-container class="md-block">
+	          <label>Title</label>
+	          <input ng-model="card.title">
+	        </md-input-container>
+	        <md-input-container class="md-block">
+	          <label>Decription</label>
+	          <input ng-model="card.desc">
+	        </md-input-container>
+	        <md-input-container class="md-block">
+	          <label>Comment</label>
+	          <input ng-model="singleComment.text">
+	        </md-input-container>
+	        <md-button class="md-flat" ng-click="onAddCommentClick()" ng-disabled="!singleComment.text">
+	          <span>Add Comment</span>
+	        </md-button>
+		</md-content>
+
+		<md-list>
+			<md-list-item ng-repeat="comment in card.comments track by $index">
+				<div class="md-list-item-text">
+		            <p>{{comment.text}}</p>
+	                <span class="md-secondary">{{comment.date | date: 'dd-MMM-yyyy'}}</span>
+	          	</div>
+	        </md-list-item>
+	        <md-divider ></md-divider>
+		</md-list>
+
+	</md-dialog-content>
+
+  	<md-dialog-actions>
+  		<md-button ng-click="insertCard()" class="md-primary" aria-label="Add Button">
+  			<span ng-if="!isCardEdit">Add Card</span>
+  			<span ng-if="isCardEdit">Save Edits</span>
+  		</md-button>
+    	<md-button ng-click="cancel()" class="md-warn">Dismiss</md-button>
+  	</md-dialog-actions>
+</md-dialog>
