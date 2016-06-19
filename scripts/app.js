@@ -8,11 +8,11 @@ angular.module('PersonalManager', ['ui.router',
         $stateProvider.state('landing', {
             url : '/landing',
             controller : 'LandingCtrl',
-            templateUrl : '../views/landing.html'
+            templateUrl : './views/landing.html'
         }).state('board', {
             url : '/{id}/board',
             controller : 'BoardCtrl',
-            templateUrl : '../views/board.html'
+            templateUrl : './views/board.html'
         });
 
         $urlRouterProvider.otherwise('/landing');
