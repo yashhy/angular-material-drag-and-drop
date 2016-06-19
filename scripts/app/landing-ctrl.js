@@ -20,11 +20,4 @@ angular.module('PersonalManager').controller('LandingCtrl', function($scope, $st
 		}, angular.noop);
 		
 	};
-
-	$scope.tasks = [
-		'Create and name a board',
-		'Create/Update/Delete one or more lists within a board',
-		'Create/Update/Delete one or more cards within a list',
-		'Rearrange the cards (Drag & Drop). A small bug exists while drag and drop, one card from list gets deleted'
-	];
 });

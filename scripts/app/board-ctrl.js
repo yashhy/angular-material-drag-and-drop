@@ -96,7 +96,7 @@ angular.module('PersonalManager').controller('BoardCtrl',
       $mdDialog.show({
         controller: DialogController,
         scope: $scope,
-        templateUrl: '/views/add-card.html',
+        templateUrl: '../views/add-card.html',
         parent: angular.element(document.body),
         targetEvent: event,
         clickOutsideToClose: true,
