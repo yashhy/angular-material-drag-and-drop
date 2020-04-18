@@ -9,6 +9,6 @@ jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      - uses: yashhy/yashhy-release-drafter-github-app@master
+      - uses: yashhy/yashhy-release-drafter-github-app@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
