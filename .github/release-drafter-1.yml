@@ -1,5 +1,5 @@
-name-template: 'v$NEXT_PATCH_VERSION'
-tag-template: 'v$NEXT_PATCH_VERSION'
+name-template: 'v$NEXT_PATCH_VERSION-a.0'
+tag-template: 'v$NEXT_PATCH_VERSION-a.0'
 categories:
   - title: '🚀 Features'
     labels:

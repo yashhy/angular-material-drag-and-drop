@@ -1,0 +1,4 @@
+name-template: 'v$NEXT_PATCH_VERSION'
+tag-template: 'v$NEXT_PATCH_VERSION'
+template: |
+  ### [Change Log](https://github.com/freshdesk/freshid-ui-v2/releases/tag/v$NEXT_PATCH_VERSION-alpha.0)
